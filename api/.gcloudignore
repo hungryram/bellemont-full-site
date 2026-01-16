@@ -1,0 +1,8 @@
+.gcloudignore
+.git
+.gitignore
+.tmp
+.cache
+build
+public/uploads/*
+node_modules

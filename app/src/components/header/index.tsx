@@ -1,0 +1,139 @@
+import React, { FC, useContext, useEffect, useRef } from 'react';
+import {
+  HeaderContainer,
+  HeaderLogo,
+  MenuBtn,
+  BellemontHeaderTitle,
+  CloseBtn,
+  HeaderNavigationMainMenu,
+  HeaderNavigationSecondaryMenu,
+  HeaderNavigationFooter,
+  HeaderNavigation,
+  HeaderMainMenuLink,
+  HeaderSecondaryMenuLink,
+  HeaderNavigationContent,
+  HeaderNavigationHeader,
+  HeaderNavigationMenu,
+  HeaderMainMenuLinkIconBlock,
+  HeaderMainMenuLinkIcon,
+  BellemontMenuTitle,
+} from './index.styled';
+import { NavigationMainMenu, NavigationSecondaryMenu } from '../../constants/content/navigation.const';
+import insta from '../../assets/icons/icon-IG.svg';
+import close from '../../assets/icons/icon-close.svg';
+import { IHeaderProps } from '../../interfaces/header-props.interface';
+import { Context } from '../../context';
+
+const Header: FC<IHeaderProps> = ({ location }) => {
+
+  const headerNavigationRef = useRef<HTMLDivElement>(null);
+  const { setIsScroll, setIsFirstLoad } = useContext(Context);
+
+  const showMenu = () => {
+    headerNavigationRef?.current?.classList.toggle('active');
+  };
+
+  return (
+    <>
+      <HeaderContainer id="headerWrapper" location={location}>
+        <HeaderLogo to={'/'} className={'animate'} onClick={() => {
+          if(location.pathname === '/') window.location.reload();
+        }}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="32.096" height="48" viewBox="0 0 32.096 48">
+            <g transform="translate(3632.797 5042.838)">
+              <path
+                id={'header-logo-path'}
+                d="M262.16,125.584a7.241,7.241,0,0,0-2.75-3.147,16.8,16.8,0,0,0-3.972-1.833,22.683,22.683,0,0,0-4.263-.881h0c-.106-.012-.212-.025-.32-.036h0c.107.011.213.024.32.036a16.994,16.994,0,0,0,3.193-1.227,14.754,14.754,0,0,0,2.964-1.987,7.833,7.833,0,0,0,2.017-2.871,10.157,10.157,0,0,0,.672-3.85,8.953,8.953,0,0,0-.672-3.575,6.725,6.725,0,0,0-2.078-2.659A11.1,11.1,0,0,0,249.6,101.2c-2.687.167-5.384.249-8.079.274a5.729,5.729,0,0,0-1.141-2.79,1.909,1.909,0,0,0-3.356,0A5.7,5.7,0,0,0,235.9,101.4l-.2-.01c-.5-.027-1-.052-1.507-.069s-1.035-.118-1.54-.118a.93.93,0,0,1-.366-.153v2.527c1.194.006,2.386.025,3.578.04.068.649.211,1.284.282,1.931.018.164.162.931-.211.713-.355-.207-.681-.46-1.023-.687a2.45,2.45,0,0,0-1.118-.488,1.2,1.2,0,0,0-1.069.436,3.1,3.1,0,0,0-.567,1.3,5.816,5.816,0,0,0,.1,2.745c.366,1.277,1,2.577,1.155,3.024a12.316,12.316,0,0,1,.749,2.792c.058.963.058,1.5.052,1.683-.007.215-.04.522-.257.631-.165.083-.4.014-.58.012a3.34,3.34,0,0,0-.73.065,2.122,2.122,0,0,0-1.039.523,2.31,2.31,0,0,0-.618,1.738,7.632,7.632,0,0,0,.63,2.477,33.957,33.957,0,0,0,2.473,4.3,8.874,8.874,0,0,1,.856,1.858,3.14,3.14,0,0,1,.172.933c0,.124-.015.3-.142.362-.206.1-.588-.15-.784-.216a1.251,1.251,0,0,0-.467-.085,1.458,1.458,0,0,0-1.141,1.136,3.648,3.648,0,0,0,.056,1.893,9.617,9.617,0,0,0,1.108,2.359c.476.788.961,1.57,1.434,2.359.237.4.475.792.688,1.2a8.158,8.158,0,0,1,.494,1.187c-.867-.018-1.734-.036-2.6-.036l-1.245-.014s.011,2.044.011,2.246c.034-.461,3.674-.252,4.025-.245l.386.009q.091.354.176.709c.121.5.233,1.01.343,1.517a3.957,3.957,0,0,0,.423,1.369c.19.294.425.334.828.333s.639-.039.828-.333a3.957,3.957,0,0,0,.423-1.369c.109-.507.222-1.013.343-1.517q.07-.292.144-.582l1.933.089a44.413,44.413,0,0,0,10.488-.344q.18-.035.359-.072.254-.053.507-.113a17.164,17.164,0,0,0,4.828-1.956,8.575,8.575,0,0,0,3.391-3.636,12.394,12.394,0,0,0,1.131-5.53A11.231,11.231,0,0,0,262.16,125.584Zm-15.853-21.975a18.54,18.54,0,0,1,3.258.521,7.611,7.611,0,0,1,4.443,2.644,6.454,6.454,0,0,1,1.064,3.808,9.62,9.62,0,0,1-.917,4.491,5.216,5.216,0,0,1-2.689,2.475,20.06,20.06,0,0,1-5.215,1.427,1.9,1.9,0,0,0-.445-.682,2.122,2.122,0,0,0-1.039-.523,3.34,3.34,0,0,0-.73-.065c-.177,0-.414.072-.58-.012-.216-.109-.25-.417-.257-.631-.006-.186-.006-.72.052-1.683a12.313,12.313,0,0,1,.749-2.792c.151-.447.789-1.747,1.155-3.024a5.816,5.816,0,0,0,.1-2.745,3.1,3.1,0,0,0-.567-1.3,1.2,1.2,0,0,0-1.069-.436,2.45,2.45,0,0,0-1.118.488c-.342.227-.668.48-1.023.687-.373.218-.229-.549-.211-.713.073-.66.22-1.308.286-1.97A45.142,45.142,0,0,1,246.307,103.609Zm10.842,30.867a7.365,7.365,0,0,1-2.077,2.994,9.756,9.756,0,0,1-3.178,1.833,13.844,13.844,0,0,1-4.2.6c-1.14.038-2.281.049-3.421.043-1.088-.005-2.176-.025-3.263-.05.01-.031.019-.062.03-.093a8.183,8.183,0,0,1,.5-1.2c.213-.409.451-.805.688-1.2.473-.789.958-1.571,1.434-2.359a9.617,9.617,0,0,0,1.108-2.359,3.647,3.647,0,0,0,.056-1.893,1.458,1.458,0,0,0-1.141-1.136,1.252,1.252,0,0,0-.467.085c-.2.065-.579.317-.784.216-.128-.063-.14-.238-.142-.362a3.139,3.139,0,0,1,.172-.933,8.874,8.874,0,0,1,.856-1.858,33.946,33.946,0,0,0,2.473-4.3c.112-.283.224-.58.321-.884a21.391,21.391,0,0,1,8.1,1.729,5.515,5.515,0,0,1,2.688,2.536,9.626,9.626,0,0,1,.917,4.492A11.5,11.5,0,0,1,257.149,134.476Z"
+                transform="translate(-3863.778 -5140.522)"/>
+            </g>
+          </svg>
+        </HeaderLogo>
+        <HeaderNavigation ref={headerNavigationRef}>
+          <HeaderNavigationContent>
+            <HeaderNavigationHeader>
+              <BellemontMenuTitle
+                href={'/'}
+                className={'header-title'}
+                onClick={() => {
+                  showMenu();
+                  setIsScroll(true);
+                  window.scrollTo(0, 0)
+                  if(location.pathname === '/' || "/architecture") window.location.reload();
+                }}>
+                The Bellemont
+              </BellemontMenuTitle>
+              <CloseBtn src={close} onClick={() => {
+                showMenu();
+                setIsScroll(true);
+              }}/>
+            </HeaderNavigationHeader>
+
+            <HeaderNavigationMenu>
+              <HeaderNavigationMainMenu>
+                {NavigationMainMenu.map((el, key) => (
+                  <HeaderMainMenuLink
+                    onClick={() => {
+                      showMenu();
+                      setIsScroll(true);
+                    }}
+                    to={el.link}
+                    key={key}
+                    className={
+                      location.pathname === el.link
+                        ? 'active'
+                        : ''
+                    }
+                  >
+                    {el.name && el.name}
+                    <HeaderMainMenuLinkIconBlock>
+                      <HeaderMainMenuLinkIcon src={el.icon} alt=""/>
+                    </HeaderMainMenuLinkIconBlock>
+                  </HeaderMainMenuLink>
+                ))}
+              </HeaderNavigationMainMenu>
+              <HeaderNavigationSecondaryMenu>
+                {NavigationSecondaryMenu.map((el, key) => (
+                  <HeaderSecondaryMenuLink
+                    onClick={() => {
+                      showMenu();
+                      setIsScroll(true);
+                    }}
+                    to={el.link}
+                    key={key}
+                    className={
+                      location.pathname === el.link ||
+                      location.pathname === el.link + '/'
+                        ? 'active'
+                        : ''
+                    }
+                  >
+                    {el.name && el.name}
+                  </HeaderSecondaryMenuLink>
+                ))}
+              </HeaderNavigationSecondaryMenu>
+            </HeaderNavigationMenu>
+
+            <HeaderNavigationFooter>
+              <a
+                href="https://www.instagram.com/thebellemontresidences/"
+                target="_blank"
+                className={'insta-icon'}
+              >
+                <img src={insta} alt="Instagram"/>
+              </a>
+            </HeaderNavigationFooter>
+          </HeaderNavigationContent>
+        </HeaderNavigation>
+        <MenuBtn onClick={() => {
+          showMenu();
+          setIsScroll(false);
+        }} className={'animate'} id={'header-menu-btn'}>
+          <p>MENU</p>
+          <span/>
+        </MenuBtn>
+      </HeaderContainer>
+    </>
+  );
+};
+
+export default Header;

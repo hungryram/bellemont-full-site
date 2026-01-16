@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_category_categories",
+  "info": {
+    "name": "Category",
+    "icon": "equals"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  }
+}

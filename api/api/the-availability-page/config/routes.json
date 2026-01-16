@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/the-availability-page",
+      "handler": "the-availability-page.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/the-availability-page",
+      "handler": "the-availability-page.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/the-availability-page",
+      "handler": "the-availability-page.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

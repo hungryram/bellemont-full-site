@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_availability_list_availability_items",
+  "info": {
+    "name": "AvailabilityItem",
+    "icon": "align-justify",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Beds": {
+      "type": "string"
+    },
+    "Baths": {
+      "type": "string"
+    },
+    "CC": {
+      "type": "string"
+    },
+    "FloorPlan": {
+      "type": "string"
+    },
+    "Int": {
+      "type": "string"
+    },
+    "Ext": {
+      "type": "string"
+    },
+    "Unit": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "string"
+    },
+    "Ret": {
+      "type": "string"
+    },
+    "FloorPlanFile": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    }
+  }
+}

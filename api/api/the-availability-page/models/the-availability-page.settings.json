@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "the_availability_pages",
+  "info": {
+    "name": "The Availability Page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "AvailabilityItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "availability-list.availability-item"
+    }
+  }
+}
