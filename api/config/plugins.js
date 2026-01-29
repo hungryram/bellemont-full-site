@@ -9,12 +9,21 @@ const getDevPlugins = () => ({
 
 const getProductionPlugins = env => ({
   upload: {
-    provider: 'google-cloud-storage',
+    provider: 'aws-s3',
     providerOptions: {
-      bucketName: env('UPLOADS_GCLOUD_BUCKET'),
-      publicFiles: false,
-      uniform: true,
-      basePath: '',
+      accessKeyId: env('R2_ACCESS_KEY_ID'),
+      secretAccessKey: env('R2_SECRET_ACCESS_KEY'),
+      endpoint: env('R2_ENDPOINT'), // e.g., https://<account-id>.r2.cloudflarestorage.com
+      params: {
+        Bucket: env('R2_BUCKET_NAME'),
+      },
+      s3ForcePathStyle: true, // Required for R2
+      signatureVersion: 'v4',
+    },
+    actionOptions: {
+      upload: {},
+      uploadStream: {},
+      delete: {},
     },
     responsiveDimensions: false,
     sizeOptimization: false
