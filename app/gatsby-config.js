@@ -95,7 +95,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: 'https://bellemont.cms.dbox.com/',
+        apiURL: process.env.GATSBY_STRAPI_API_URL || 'https://bellemont.cms.dbox.com/',
         collectionTypes: [
           'articles',
           'categories'
