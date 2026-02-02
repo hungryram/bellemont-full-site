@@ -11,11 +11,11 @@
     "node": "24.x"
   },
   "scripts": {
-    "develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider npx gatsby develop",
-    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider npx gatsby develop",
-    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider npx gatsby build",
-    "serve": "npx gatsby serve",
-    "clean": "npx gatsby clean",
+    "develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider node node_modules/.bin/gatsby develop",
+    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider node node_modules/.bin/gatsby develop",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider node node_modules/.bin/gatsby build",
+    "serve": "node node_modules/.bin/gatsby serve",
+    "clean": "node node_modules/.bin/gatsby clean",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "tslint --project ."
   },
