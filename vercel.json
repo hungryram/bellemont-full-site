@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd app && npm run build",
+  "outputDirectory": "app/public",
+  "framework": "gatsby",
+  "installCommand": "cd app && npm install"
+}
