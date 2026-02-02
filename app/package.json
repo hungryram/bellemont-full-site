@@ -11,9 +11,9 @@
     "node": "24.x"
   },
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
+    "develop": "cross-env NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
@@ -54,6 +54,7 @@
   "devDependencies": {
     "@types/gsap": "^1.20.2",
     "@types/styled-components": "^5.1.9",
+    "cross-env": "^10.1.0",
     "eslint": "^7.11.0",
     "gatsby-image": "^3.11.0",
     "gsap": "^3.7.1",
