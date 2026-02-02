@@ -116,7 +116,7 @@ const FormLogic = () => {
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
       setFormSent(true);
-      fetch("/contact-form", {
+      fetch("/api/contact-form", {
         method: "POST",
         headers: {
           Accept: "application/json",

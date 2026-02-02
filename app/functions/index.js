@@ -43,34 +43,35 @@ const writeToSpreadsheet = async (data) => {
 
 const sendEmail = async (data) => {
   const emailData = {
-    from: '"Bellemont" <no_reply_bellemont@dbox.com>',
-    to: `"Info" <info@the-bellemont.com>`,
-    subject: "Bellemont - You have received an inquiry",
-    text: `New inquiry from Bellemont.
-      \n\nRegistrant Details:
-      First name: ${data.firstName},
-      Last name: ${data.lastName},
-      Address: ${data.address},
-      City: ${data.city},
-      State: ${data.state},
-      Zip: ${data.zip},
-      Email: ${data.email},
-      Telephone: ${data.phone},
-      Bedroom type: ${data.bedroomType},
-      How did you hear about us?: ${data.howHear},
-      Are you a broker?: ${data.isBroker},
-      Brokerage firm: ${data.brokerageFirm},
-      Client Name: ${data.clientName},
-      Notes: ${data.notes}
-    `,
+    From: 'no-reply@the-bellemont.com',
+    To: 'ram@hungryram.com',
+    Subject: 'Bellemont - You have received an inquiry',
+    TextBody: `New inquiry from Bellemont.
+
+Registrant Details:
+First name: ${data.firstName}
+Last name: ${data.lastName}
+Address: ${data.address}
+City: ${data.city}
+State: ${data.state}
+Zip: ${data.zip}
+Email: ${data.email}
+Telephone: ${data.phone}
+Bedroom type: ${data.bedroomType}
+How did you hear about us?: ${data.howHear}
+Are you a broker?: ${data.isBroker}
+Brokerage firm: ${data.brokerageFirm}
+Client Name: ${data.clientName}
+Notes: ${data.notes}`,
+    MessageStream: 'outbound'
   };
 
-  return fetch("https://form.api.dbxd.com/post-ses-email", {
+  return fetch("https://api.postmarkapp.com/email", {
     method: "POST",
-    mode: "cors",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      "X-Postmark-Server-Token": process.env.POSTMARK_SERVER_TOKEN
     },
     body: JSON.stringify(emailData),
   })
