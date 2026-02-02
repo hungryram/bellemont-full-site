@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 const sendEmail = async (data) => {
   const emailData = {
-    From: 'forms@hungryramwebdesign.com',
+    From: 'The Bellemont <forms@hungryramwebdesign.com>',
     To: 'ram@hungryram.com',
     Subject: 'Bellemont - You have received an inquiry',
     TextBody: `New inquiry from Bellemont.
