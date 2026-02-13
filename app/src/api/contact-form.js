@@ -2,9 +2,9 @@ const fetch = require('node-fetch');
 
 const sendEmail = async (data) => {
   const emailData = {
-    From: 'no-reply@the-bellemont.com',
-    To: 'ram@hungryram.com',
-    Subject: 'Bellemont - You have received an inquiry',
+    From: "no-reply@the-bellemont.com",
+    To: "info@the-bellemont.com",
+    Subject: "Bellemont - You have received an inquiry",
     TextBody: `New inquiry from Bellemont.
 
 Registrant Details:
@@ -22,7 +22,7 @@ Are you a broker?: ${data.isBroker}
 Brokerage firm: ${data.brokerageFirm}
 Client Name: ${data.clientName}
 Notes: ${data.notes}`,
-    MessageStream: 'outbound'
+    MessageStream: "outbound",
   };
 
   return fetch("https://api.postmarkapp.com/email", {
